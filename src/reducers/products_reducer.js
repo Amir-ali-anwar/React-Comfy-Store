@@ -37,6 +37,29 @@ const products_reducer = (state, action) => {
       features_prodcuts:featured,
     }
   }
+   // single products
+   if(action.type===GET_SINGLE_PRODUCT_BEGIN){
+    return {
+      ...state,
+      single_products_loading:true,
+      single_products_error:false
+    }
+  }
+  if(action.type===GET_SINGLE_PRODUCT_SUCCESS){
+    return {
+      ...state,
+      single_products_loading:false,
+      single_products_error:true,
+      single_product:action.payload
+    }
+  }
+  if(action.type===GET_SINGLE_PRODUCT_ERROR){
+    return {
+      ...state,
+      single_products_loading:false,
+      single_products_error:true
+    }
+  }
   return state
   throw new Error(`No Matching "${action.type}" - action type`)
 }
