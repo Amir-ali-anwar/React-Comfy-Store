@@ -3,7 +3,27 @@ import { useFilterContext } from '../context/filter_context'
 import { BsFillGridFill, BsList } from 'react-icons/bs'
 import styled from 'styled-components'
 const Sort = () => {
-  return <h4>sort </h4>
+  const {SetGridView,SetListView,GridView} = useFilterContext();
+  return (
+    <Wrapper>
+      <div className='btn-container'>
+        <button className={`${GridView ? 'active' : ''}`} onClick={()=>SetGridView()}><BsFillGridFill /></button>
+        <button className={`${!GridView ? 'active' : ''}`} onClick={()=>SetListView()} ><BsList /></button>
+      </div>
+      <p> Products Found</p>
+      
+        <hr />
+        <form>
+          <label htmlFor="sort">sort by</label>
+          <select name="sort" id="sort" className="sort-input" >
+            <option value="price-lowest">price (lowest)</option>
+            <option value="price-highest">price (highest)</option>
+            <option value="name-a">name (a - z)</option>
+            <option value="name-z">name (z - a)</option>
+          </select>
+        </form>
+    </Wrapper>
+  )
 }
 
 const Wrapper = styled.section`
