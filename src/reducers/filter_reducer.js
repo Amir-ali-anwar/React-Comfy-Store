@@ -13,13 +13,13 @@ const filter_reducer = (state, action) => {
   if(action.type===SET_GRIDVIEW){
     return {
       ...state,
-      GridView:false
+      GridView:true
     }
   }
   if(action.type===SET_LISTVIEW){
     return {
       ...state,
-      GridView:true
+      GridView:false
     }
   }
   return state
