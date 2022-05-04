@@ -5,7 +5,67 @@ import { getUniqueValues, formatPrice } from '../utils/helpers'
 import { FaCheck } from 'react-icons/fa'
 
 const Filters = () => {
-  return <h4>filters</h4>
+  return (
+    <Wrapper>
+      <div className='content'>
+        <form>
+        <div className='form-control'>
+            <input
+              type='text'
+              name='text'
+              placeholder='search'
+              className='search-input'
+            />
+          </div>
+          <div className='form-control'>
+            <h5>category</h5>
+            <div>
+                  <button
+                    type='button'
+                    name='category'
+                   
+                  >
+                  </button>
+                
+            </div>
+          </div>
+          <div className='form-control'>
+            <h5>company</h5>
+            <select
+              name='company'
+              className='company'
+            >
+            </select>
+          </div>
+          <div className='form-control'>
+            <h5>colors</h5>
+           
+          </div>
+          <div className='form-control'>
+            <h5>price</h5>
+            <p className='price'>2334</p>
+            <input
+              type='range'
+              name='price'
+            
+            />
+          </div>
+          <div className='form-control shipping'>
+            <label htmlFor='shipping'>free shipping</label>
+            <input
+              type='checkbox'
+              name='shipping'
+              id='shipping'
+             
+            />
+          </div>
+        </form>
+        <button type='button' className='clear-btn'>
+          clear filters
+        </button>
+      </div>
+    </Wrapper>
+  )
 }
 
 const Wrapper = styled.section`
