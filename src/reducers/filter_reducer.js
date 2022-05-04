@@ -25,8 +25,8 @@ const filter_reducer = (state, action) => {
   if(action.type===LOAD_PRODUCTS){
     return {
       ...state,
-      filtered_Products:action.payload,
-      all_products:action.payload
+      filtered_Products:[...action.payload],
+      all_products:[...action.payload]
     }
   }
   
