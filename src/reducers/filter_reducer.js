@@ -22,12 +22,16 @@ const filter_reducer = (state, action) => {
       GridView:false
     }
   }
-  if(action.type===LOAD_PRODUCTS){
+  if (action.type === LOAD_PRODUCTS) {
+    let maxPrice= action.payload.map((p)=>p.price)
+    maxPrice=Math.max(...maxPrice)
     return {
       ...state,
-      filtered_Products:[...action.payload],
-      all_products:[...action.payload]
+      all_products: [...action.payload],
+      filtered_Products: [...action.payload],
+      filter: { ...state.filter, max_Price: maxPrice, price: maxPrice },
     }
+
   }
   if (action.type === UPDATE_SORT) {
     return {
@@ -61,6 +65,52 @@ const filter_reducer = (state, action) => {
     return {
       ...state,
       filtered_products:tempproducts
+    }
+  }
+  if (action.type === FILTER_PRODUCTS) {
+    const {all_products}= state
+    let temp_products=[...all_products]
+    const {searchtext,categoryname,companyname,color,shipping,price}=state.filter
+    if (searchtext) {
+      temp_products = temp_products.filter((product) =>
+        product.name.toLowerCase().startsWith(searchtext)
+      )
+    }
+    if (categoryname !== 'all') {
+      temp_products = temp_products.filter(
+        (product) => product.category === categoryname
+      )
+    }
+    if (companyname !== 'all') {
+      temp_products = temp_products.filter(
+        (product) => product.company === companyname
+      )
+    }
+    if(shipping){
+      temp_products=temp_products.filter((product)=>product.shipping===true)
+    }
+    if(color !=='all'){
+      temp_products=temp_products.filter((product)=> {
+       return product.colors.find((c)=>c===color) 
+      })
+    }
+    if(price){
+      temp_products=temp_products.filter((product)=>product.price<price)
+    }
+    return { ...state,filtered_Products:temp_products }
+  }
+  if (action.type === CLEAR_FILTERS) {
+    return {
+      ...state,
+      filter: {
+        ...state.filters,
+        text: '',
+        companyname: 'all',
+        categoryname: 'all',
+        color: 'all',
+        price: state.filter.max_price,
+        shipping: false,
+      },
     }
   }
   
