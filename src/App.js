@@ -12,6 +12,8 @@ import {
   PrivateRoute,
   AuthWrapper,
 } from './pages'
+import { ToastContainer } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
 function App() {
   return (
     <Router>
@@ -35,6 +37,7 @@ function App() {
         <Error />
       </Route>
     </Switch>
+    <ToastContainer position="top-center" />
     <Footer />
   </Router>
   )

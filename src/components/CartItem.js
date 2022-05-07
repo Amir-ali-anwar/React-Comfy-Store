@@ -4,12 +4,16 @@ import { formatPrice } from '../utils/helpers'
 import AmountButtons from './AmountButtons'
 import { FaTrash } from 'react-icons/fa'
 import { useCartContext } from '../context/cart_context'
+import { toast } from "react-toastify";
 
-const CartItem = ({id,name,image,color,price,amount}) => {
+const CartItem = ({id,name,image,color,price,amount,max}) => {
   let priceTransform= price===isNaN? Number(price):price
   console.log(priceTransform)
   const { removeItem, toggleAmount} = useCartContext()
   const increase=()=>{
+    if(amount===max ){
+      toast.error(`products can't be added more than the available products in the stock `) 
+    }
     toggleAmount(id,'inc')
   }
   const decrease=()=>{

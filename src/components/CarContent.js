@@ -13,6 +13,7 @@ const CartContent = () => {
       <CartColumns />
       {
         cart?.map((item,index) => {
+          console.log(item)
           return <CartItem key={index} {...item} />
         })}
       <hr />
