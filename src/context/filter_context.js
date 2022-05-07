@@ -16,7 +16,7 @@ const initialState = {
   GridView:true,
   filtered_Products:[],
   all_products:[],
-  sortable:'price-highest',
+  sortable:'price-lowest',
   filter:{
     searchtext:'',
     categoryname:'all',
