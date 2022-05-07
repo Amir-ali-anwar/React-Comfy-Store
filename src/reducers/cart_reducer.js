@@ -7,6 +7,12 @@ import {
 } from '../actions'
 
 const cart_reducer = (state, action) => {
+  if(action.type===ADD_TO_CART){
+    console.log(action.payload);
+    return {
+      ...state
+    }
+  }
   return state
   throw new Error(`No Matching "${action.type}" - action type`)
 }
