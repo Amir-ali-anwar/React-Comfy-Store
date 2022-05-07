@@ -45,6 +45,7 @@ const cart_reducer = (state, action) => {
     const tempdata = state.cart.filter((cart) => cart.id !== action.payload)
     return {
       ...state,
+      isAlert:true,
       cart: tempdata
     }
 

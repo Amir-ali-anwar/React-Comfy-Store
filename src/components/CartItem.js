@@ -12,12 +12,17 @@ const CartItem = ({id,name,image,color,price,amount,max}) => {
   const { removeItem, toggleAmount} = useCartContext()
   const increase=()=>{
     if(amount===max ){
-      toast.error(`products can't be added more than the available products in the stock `) 
+    return  toast.error(`products can't be added more than the available products in the stock `) 
     }
     toggleAmount(id,'inc')
   }
   const decrease=()=>{
-    toggleAmount(id,'dec')
+    if(amount===1){
+      toast.warn(`Product amount can't be less than 1`)
+    }else{
+
+      toggleAmount(id,'dec')
+    }
   }
   return (
     <Wrapper>

@@ -37,7 +37,7 @@ function App() {
         <Error />
       </Route>
     </Switch>
-    <ToastContainer position="top-center" />
+    <ToastContainer position="top-center"  limit={1}/>
     <Footer />
   </Router>
   )

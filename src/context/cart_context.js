@@ -21,6 +21,7 @@ const initialState = {
   cart:getlocalStorageDdata(),
   total_amount:0,
   total_items:0,
+  isAlert:false,
   free_shipping:false
 }
 
