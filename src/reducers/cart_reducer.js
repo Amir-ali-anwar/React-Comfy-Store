@@ -40,6 +40,58 @@ const cart_reducer = (state, action) => {
    }
    
   }
+  if (action.type === REMOVE_CART_ITEM) {
+    const tempdata = state.cart.filter((cart) => cart.id !== action.payload)
+    return {
+      ...state,
+      cart: tempdata
+    }
+
+  }
+  if (action.type === CLEAR_CART) {
+    return {
+      ...state,
+      cart: []
+    }
+
+  }
+  if (action.type === TOGGLE_CART_ITEM_AMOUNT) {
+    const { id, value } = action.payload;
+    const tempCart = state.cart.map((item) => {
+      // console.log()
+      if (item.id === id) {
+        if (value === 'inc') {
+          let newamount = item.amount + 1
+          if (newamount > item.max) {
+            newamount = item.max
+          }
+          return { ...item, amount:newamount,showAlert:true}
+        }
+        if (value === 'dec') {
+          let newamount = item.amount - 1
+          if (newamount <1) {
+            newamount = 1
+          }
+          return { ...item, amount:newamount }
+        }
+      } else {
+        return {item }
+      }
+    })
+    return {...state,cart:tempCart}
+  }
+  if(action.type===COUNT_CART_TOTALS){
+    const {total_amount,total_items}=state.cart.reduce((total,currentItem)=>{
+      const { amount, price } = currentItem
+      total.total_items += amount
+      total.total_amount += price * amount
+      return total
+    },{
+      total_amount:0,
+      total_items:0  
+    })
+    return {...state,total_amount,total_items}
+  }
   return state
   throw new Error(`No Matching "${action.type}" - action type`)
 }
