@@ -99,6 +99,10 @@ const filter_reducer = (state, action) => {
     }
     return { ...state,filtered_Products:temp_products }
   }
+  if (action.type === UPDATE_FILTERS) {
+    const { name, value } = action.payload
+    return { ...state, filter: { ...state.filter, [name]: value } }
+  }
   if (action.type === CLEAR_FILTERS) {
     return {
       ...state,
