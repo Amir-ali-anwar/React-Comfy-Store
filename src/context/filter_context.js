@@ -40,7 +40,7 @@ export const FilterProvider = ({ children }) => {
   useEffect(() => {
     dispatch({type:SORT_PRODUCTS})
     dispatch({type:FILTER_PRODUCTS})
-   }, [prodcuts,state.sortable,state.filter])
+   }, [state.sortable,state.filter])
   const SetGridView=()=>{
     dispatch({type:SET_GRIDVIEW})
   }
@@ -55,8 +55,6 @@ export const FilterProvider = ({ children }) => {
 const updatefilter = (e) => {
   let name = e.target.name
   let value = e.target.value
-  console.log('value is',value)
-  console.log('name is',name)
   if (name === 'categoryname') {
     value = e.target.textContent
   }
@@ -65,7 +63,6 @@ const updatefilter = (e) => {
   }
   if (name === 'price') {
     value = Number(value)
-    console.log(value)
   }
   if (name === 'shipping') {
     value = e.target.checked

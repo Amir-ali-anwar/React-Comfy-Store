@@ -8,7 +8,6 @@ import { toast } from "react-toastify";
 
 const CartItem = ({id,name,image,color,price,amount,max}) => {
   let priceTransform= price===isNaN? Number(price):price
-  console.log(priceTransform)
   const { removeItem, toggleAmount} = useCartContext()
   const increase=()=>{
     if(amount===max ){

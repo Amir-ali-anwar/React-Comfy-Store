@@ -114,7 +114,6 @@ const Filters = () => {
             max={max_Price}
             value={price}
           />
-          {/* {console.log('min',min_price,max_Price,price)} */}
         </div>
         <div className='form-control shipping'>
           <label htmlFor='shipping'>free shipping</label>
