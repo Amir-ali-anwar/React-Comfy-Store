@@ -7,7 +7,9 @@ import { FilterProvider } from "./context/filter_context";
 import { CartProvider } from "./context/cart_context";
 import { UserProvider } from "./context/user_context";
 import { Auth0Provider } from "@auth0/auth0-react";
-
+// Domain dev-mvd2oj1fbfdyahup.us.auth0.com
+// Client id fAVJyBWzsABi5hGG4435QDAEE6syw5tf
+//Client Secret JlAtbOPmpw-JyTZJqXxDtlx41Kez4_DtPU2QFJhpebdtOqaLWa2nyMmjGLlAbRyR
 ReactDOM.render(
   <ProductsProvider>
     <FilterProvider>

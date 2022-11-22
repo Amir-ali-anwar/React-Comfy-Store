@@ -13,7 +13,7 @@ const Sort = () => {
       <p>{Products.length} Products Found</p>
       
         <hr />
-        <form>
+        {/* <form>
           <label htmlFor="sort">sort by</label>
           <select name="sort" id="sort" className="sort-input" value={sortable} onChange={updateSort}>
             <option value="price-lowest">price (lowest)</option>
@@ -21,7 +21,7 @@ const Sort = () => {
             <option value="name-a">name (a - z)</option>
             <option value="name-z">name (z - a)</option>
           </select>
-        </form>
+        </form> */}
     </Wrapper>
   )
 }
