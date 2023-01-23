@@ -7,6 +7,9 @@ import {
 } from '../actions'
 
 const cart_reducer = (state, action) => {
+  for (let index = 0; index < 100000; index++) {
+      // console.log(index);
+  }
   if(action.type===ADD_TO_CART){
    const {id,amount,product,color}=action.payload;
    const tempItem= state.cart.find((item)=>item.id===id+color);

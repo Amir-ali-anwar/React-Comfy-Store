@@ -10,6 +10,9 @@ import {
 } from '../actions'
 
 const filter_reducer = (state, action) => {
+  for (let index = 0; index < 10000; index++) {
+    // console.log(index);
+}
   if(action.type===SET_GRIDVIEW){
     return {
       ...state,
@@ -62,7 +65,6 @@ const filter_reducer = (state, action) => {
          return b.name.localeCompare(a.name);
        });
      }
-     console.log("tempproducts", tempproducts);
     return { ...state, filtered_products: tempproducts };
   }
   if (action.type === FILTER_PRODUCTS) {
@@ -95,7 +97,7 @@ const filter_reducer = (state, action) => {
     if(price){
       temp_products=temp_products.filter((product)=>product.price<price)
     }
-    return { ...state,filtered_Products:temp_products }
+    return { ...state, filtered_Products:temp_products }
   }
   if (action.type === UPDATE_FILTERS) {
     const { name, value } = action.payload

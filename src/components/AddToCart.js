@@ -12,6 +12,7 @@ const AddToCart = ({ product }) => {
   const { addTocart,cart } = useCartContext();
   const [amount, setAmount] = useState(1);
   const increase = () => {
+    setTimeout(() => {
     setAmount((oldAmount) => {
       let tempAmount = oldAmount + 1;
       if (tempAmount > stock) {
@@ -19,8 +20,10 @@ const AddToCart = ({ product }) => {
       }
       return tempAmount;
     });
+  }, 2000);
   };
   const decrease = () => {
+    setTimeout(() => {
     setAmount((oldAmount) => {
       let tempAmount = oldAmount - 1;
       if (tempAmount < 1) {
@@ -28,6 +31,7 @@ const AddToCart = ({ product }) => {
       }
       return tempAmount;
     });
+  }, 2000);
   };
   return (
     <Wrapper>

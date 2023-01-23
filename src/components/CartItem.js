@@ -13,15 +13,19 @@ const CartItem = ({id,name,image,color,price,amount,max}) => {
     if(amount===max ){
     return  toast.error(`products can't be added more than the available products in the stock `) 
     }
-    toggleAmount(id,'inc')
+    setTimeout(() => {
+      toggleAmount(id, "inc");
+    }, 2000);
   }
   const decrease=()=>{
     if(amount===1){
       toast.warn(`Product amount can't be less than 1`)
-    }else{
-
-      toggleAmount(id,'dec')
     }
+    setTimeout(() => {
+      toggleAmount(id,'dec')
+
+    }, 2000);
+    
   }
   return (
     <Wrapper>

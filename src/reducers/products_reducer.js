@@ -10,6 +10,9 @@ import {
 } from '../actions'
 
 const products_reducer = (state, action) => {
+  for (let index = 0; index < 100000; index++) {
+    // console.log(index);
+}
   if(action.type===SIDEBAR_CLOSE){
     return {
       ...state,

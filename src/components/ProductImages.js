@@ -1,10 +1,11 @@
 import React, { useState } from 'react'
 import styled from 'styled-components'
-
+import AuthWrapper from './AuthWrapper'
 const ProductImages = ({ images = [{url:''}] }) => {
   const [mainimage,Setmainimage]=useState(images[0])
   return (
     <Wrapper>
+      <AuthWrapper Showdata="2000">
       <img src={mainimage.url} className='main' />
       <div className='gallery'>
       {
@@ -17,6 +18,7 @@ const ProductImages = ({ images = [{url:''}] }) => {
         })
       }
       </div>
+      </AuthWrapper>
     </Wrapper>
   )
 }
